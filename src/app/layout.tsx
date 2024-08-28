@@ -8,25 +8,25 @@ import type { ReactNode } from 'react'
 const fontNotoSansJp = Noto_Sans_JP({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'Post Content App',
-	description: 'Post Content App'
+  title: 'Post Content App',
+  description: 'Post Content App'
 }
 
 export default function RootLayout({
-	children
+  children
 }: Readonly<{
-	children: ReactNode
+  children: ReactNode
 }>) {
-	return (
-		<html lang="ja">
-			<body
-				className={cn(
-					'min-h-screen bg-background antialiased',
-					fontNotoSansJp.className
-				)}
-			>
-				{children}
-			</body>
-		</html>
-	)
+  return (
+    <html lang="ja">
+      <body
+        className={cn(
+          'min-h-screen bg-background antialiased',
+          fontNotoSansJp.className
+        )}
+      >
+        {children}
+      </body>
+    </html>
+  )
 }
