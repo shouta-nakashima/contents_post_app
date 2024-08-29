@@ -191,6 +191,24 @@ const IndexPage = () => {
           </p>
         </div>
       </section>
+      <section className="container py-8 md:py-12 lg:py-24" id="contact">
+        <div className="max-w-[58rem] mx-auto text-center flex flex-col gap-4">
+          <h2 className="font-extrabold text-3xl md:text-6xl">Contact Me</h2>
+          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+            もしもWebサービスが気に入った場合は下記XからDMでご連絡ください。
+            <br />
+            お仕事のご連絡をお待ちしております。
+          </p>
+          <NextLink
+            href={siteConfig.links.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            お仕事はこちらまで
+          </NextLink>
+        </div>
+      </section>
     </>
   )
 }

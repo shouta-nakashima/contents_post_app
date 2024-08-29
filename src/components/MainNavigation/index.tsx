@@ -30,7 +30,9 @@ export const MainNavigation = ({ items }: Props) => {
       <button className="md:hidden" onClick={() => setOpen(!open)}>
         <span>メニュー</span>
       </button>
-      {open && <MobileNavigation items={items} />}
+      {open && (
+        <MobileNavigation items={items} onClose={() => setOpen(false)} />
+      )}
     </div>
   )
 }
