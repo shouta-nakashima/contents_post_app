@@ -1,4 +1,5 @@
 import { MainNavigation } from '@/components/MainNavigation'
+import { SiteFooter } from '@/components/SiteFooter'
 import { buttonVariants } from '@/components/shadcn/ui/button'
 import { cn } from '@/components/shadcn/utils'
 import { marketingConfig } from '@/config/marketing'
@@ -25,6 +26,7 @@ const MarketingLayout = ({ children }: { children: ReactNode }) => {
         </div>
       </header>
       <main>{children}</main>
+      <SiteFooter />
     </div>
   )
 }
