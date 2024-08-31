@@ -43,6 +43,20 @@ export const UserAuthForm = () => {
           Github
         </button>
       </form>
+      <form
+        className="w-full flex justify-center"
+        action={async () => {
+          'use server'
+          await signIn('google')
+        }}
+      >
+        <button
+          className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}
+        >
+          <Icon.google className="mr-2 w-5 h-5" />
+          Google
+        </button>
+      </form>
     </div>
   )
 }

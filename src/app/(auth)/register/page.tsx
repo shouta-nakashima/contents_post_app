@@ -1,9 +1,7 @@
+import { PageRegister } from '@/features/auth/components/PageRegister'
+
 const RegisterPage = () => {
-  return (
-    <div>
-      <h1>Register</h1>
-    </div>
-  )
+  return <PageRegister />
 }
 
 export default RegisterPage
