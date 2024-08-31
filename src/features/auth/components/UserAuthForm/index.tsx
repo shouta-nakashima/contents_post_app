@@ -3,6 +3,7 @@ import { buttonVariants } from '@/components/shadcn/ui/button'
 import { Input } from '@/components/shadcn/ui/input'
 import { Label } from '@/components/shadcn/ui/label'
 import { cn } from '@/components/shadcn/utils'
+import { signIn } from '../../../../../auth'
 
 export const UserAuthForm = () => {
   return (
@@ -28,10 +29,20 @@ export const UserAuthForm = () => {
           </span>
         </div>
       </div>
-      <button className={cn(buttonVariants({ variant: 'outline' }))}>
-        <Icon.github className="mr-2 w-5 h-5" />
-        Github
-      </button>
+      <form
+        className="w-full flex justify-center"
+        action={async () => {
+          'use server'
+          await signIn('github')
+        }}
+      >
+        <button
+          className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}
+        >
+          <Icon.github className="mr-2 w-5 h-5" />
+          Github
+        </button>
+      </form>
     </div>
   )
 }

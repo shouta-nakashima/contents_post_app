@@ -21,7 +21,8 @@ export const generateMetadata = async ({
   }
   return {
     title: page.title,
-    description: page.description
+    description: page.description,
+    robots: 'noindex' //検索除外
   }
 }
 
