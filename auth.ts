@@ -1,16 +1,21 @@
+import { PrismaAdapter } from '@auth/prisma-adapter'
 import NextAuth, { type NextAuthConfig } from 'next-auth'
 import Github from 'next-auth/providers/github'
 import Google from 'next-auth/providers/google'
+import { prisma } from './prisma'
 
 export const config: NextAuthConfig = {
+  adapter: PrismaAdapter(prisma),
   providers: [
     Github({
       clientId: process.env.AUTH_GITHUB_ID,
-      clientSecret: process.env.AUTH_GITHUB_SECRET
+      clientSecret: process.env.AUTH_GITHUB_SECRET,
+      allowDangerousEmailAccountLinking: true
     }),
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
+      allowDangerousEmailAccountLinking: true
     })
   ],
   basePath: '/api/auth',
@@ -24,15 +29,9 @@ export const config: NextAuthConfig = {
       }
       return session
     }
-    // authorized({ request, auth }) {
-    //   try {
-    //     const { pathname } = request.nextUrl
-    //     if (pathname === 'protected-page') return !!auth
-    //     return true
-    //   } catch (error) {
-    //     console.log('Error:', error)
-    //   }
-    // }
+  },
+  session: {
+    strategy: 'jwt' //NOTE: line8 "adapter: PrismaAdapter(prisma)" を指定すると db session になるので session 管理を JWT で行う(Auth.js での session 管理)
   }
 }
 
