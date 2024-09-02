@@ -1,8 +1,8 @@
-import { DashboardNavigation } from '@/components/DashboardNavigation'
 import { MainNavigation } from '@/components/MainNavigation'
 import { SiteFooter } from '@/components/SiteFooter'
 import { dashboardConfig } from '@/config/dashboard'
 import type { ReactNode } from 'react'
+import { DashboardNavigation } from 'src/features/dashboard/components/DashboardNavigation'
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
