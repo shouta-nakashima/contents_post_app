@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
+import { Toaster } from '@/components/shadcn/ui/toaster'
 import { cn } from '@/components/shadcn/utils'
 import { siteConfig } from '@/config/site'
 import type { ReactNode } from 'react'
@@ -30,6 +31,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   )
